@@ -1,0 +1,16 @@
+{
+  "name": "keyloger",
+  "version": "1.0.0",
+  "description": "Keylogger backend server using Express",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": ["keylogger", "express", "keystroke"],
+  "author": "Vaibhav Katkar",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  }
+}
