@@ -33,7 +33,7 @@ app.post('/keystroke', (req, res) => {
       if (err) {
         console.error('❌ Error writing to log:', err);
       } else {
-        // console.log('✅ Keystroke logged:', cleanedInput);
+         console.log('✅ Keystroke logged:', cleanedInput);
       }
     });
   }
